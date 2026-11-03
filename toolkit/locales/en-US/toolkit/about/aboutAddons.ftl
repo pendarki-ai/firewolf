@@ -497,7 +497,7 @@ addon-detail-group-label-quarantined-domains =
 # recommendation. As such, we hard code "Firefox" and avoid personalising
 # language like the words "our" or "we".
 addon-badge-recommended4 =
-  .title = Firefox only recommends extensions that meet standards for security and performance
+  .title = Firewolf only recommends extensions that meet standards for security and performance
 # We hard code "Mozilla" in the string below because the extensions are built
 # by Mozilla and we don't want forks to display "by Fork".
 addon-badge-line4 =
@@ -537,7 +537,7 @@ addon-sitepermissions-required = Grants the following capabilities to <span data
 
 # A recommendation for the Firefox Color theme shown at the bottom of the theme
 # list view. The "Firefox Color" name itself should not be translated.
-recommended-theme-1 = Feeling creative? <a data-l10n-name="link">Build your own theme with Firefox Color.</a>
+recommended-theme-1 = Feeling creative? <a data-l10n-name="link">Build your own theme with Firewolf Color.</a>
 
 ## Page headings
 

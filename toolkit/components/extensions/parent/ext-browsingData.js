@@ -327,7 +327,7 @@ class BrowsingDataImpl {
     ) {
       return Promise.reject({
         message:
-          "Firefox does not support protectedWeb or extension as originTypes.",
+          "Firewolf does not support protectedWeb or extension as originTypes.",
       });
     }
 

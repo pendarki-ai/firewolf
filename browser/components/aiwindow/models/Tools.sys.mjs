@@ -397,9 +397,9 @@ export const toolsConfig = [
     function: {
       name: GET_NAVIGATION_INFO,
       description:
-        "Find relevant Firefox preferences pages based on a user query. " +
+        "Find relevant Firewolf preferences pages based on a user query. " +
         "Use this when the user asks where to find a setting, how to configure something in " +
-        "Firefox, or where to manage Smart Window features like memories.",
+        "Firewolf, or where to manage Smart Window features like memories.",
       parameters: {
         type: "object",
         properties: {

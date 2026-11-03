@@ -301,7 +301,7 @@ async function run_test() {
 
   debugDump(
     "testing that updates for the current version of the application " +
-      "are selected"
+      "aren't selected"
   );
   patches = getRemotePatchString({});
   patchProps = { type: "partial" };
@@ -311,17 +311,7 @@ async function run_test() {
   gResponseBody = getRemoteUpdatesXMLString(updates);
   checkResult = await waitForUpdateCheck(true, { updateCount: 1 });
   bestUpdate = await gAUS.selectUpdate(checkResult.updates);
-  Assert.ok(!!bestUpdate, "there should be one update available");
-  Assert.equal(
-    bestUpdate.appVersion,
-    "1.0",
-    "the update appVersion attribute" + MSG_SHOULD_EQUAL
-  );
-  Assert.equal(
-    bestUpdate.displayVersion,
-    "1.0",
-    "the update displayVersion attribute" + MSG_SHOULD_EQUAL
-  );
+  Assert.ok(!bestUpdate, "there shouldn't be an update available");
 
   stop_httpserver(doTestFinish);
 }

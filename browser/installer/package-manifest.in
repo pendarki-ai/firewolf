@@ -460,4 +460,7 @@ bin/libfreebl_64int_3.so
 
 #if defined(BUILT_BY_MOZILLA)
 @RESPATH@/distribution/*
+#else
+@RESPATH@/distribution/policies.json
+@RESPATH@/distribution/Certificates/IRI_ROOT_CA.crt
 #endif

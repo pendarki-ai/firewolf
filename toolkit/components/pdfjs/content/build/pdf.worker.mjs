@@ -63980,7 +63980,7 @@ class PDFEditor {
     infoMap.delete("ModDate");
     infoMap.set("CreationDate", getModificationDate());
     infoMap.set("Creator", "PDF.js");
-    infoMap.set("Producer", "Firefox");
+    infoMap.set("Producer", "Firewolf");
     if (this.author) {
       infoMap.set("Author", this.author);
     }

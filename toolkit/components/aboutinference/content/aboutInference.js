@@ -929,7 +929,7 @@ async function runInference() {
         e.message.includes("Invalid model hub root url: https://huggingface.co")
       ) {
         resultsConsole.addLine(
-          "Make sure you started Firefox with MOZ_ALLOW_EXTERNAL_ML_HUB=1"
+          "Make sure you started Firewolf with MOZ_ALLOW_EXTERNAL_ML_HUB=1"
         );
       }
       engineParent = null; // let's re-create it on errors.

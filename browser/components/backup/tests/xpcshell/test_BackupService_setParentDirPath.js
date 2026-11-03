@@ -24,19 +24,19 @@ add_task(async function test_typical() {
   await bs.setParentDirPath(path);
   Assert.equal(
     Services.prefs.getStringPref("browser.backup.location"),
-    PathUtils.join(path, "Restore Firefox"),
-    "Path with 'Restore Firefox' appended is used"
+    PathUtils.join(path, "Restore Firewolf"),
+    "Path with 'Restore Firewolf' appended is used"
   );
 });
 
 add_task(async function test_already_decorated() {
   let bs = new BackupService();
   let name = "setParentDirPath_already_decorated";
-  let path = PathUtils.join(do_get_profile().path, name, "Restore Firefox");
+  let path = PathUtils.join(do_get_profile().path, name, "Restore Firewolf");
   await bs.setParentDirPath(path);
   Assert.equal(
     Services.prefs.getStringPref("browser.backup.location"),
     path,
-    "No duplicate 'Restore Firefox' is appended"
+    "No duplicate 'Restore Firewolf' is appended"
   );
 });

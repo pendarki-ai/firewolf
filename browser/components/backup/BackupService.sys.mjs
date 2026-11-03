@@ -657,7 +657,7 @@ export class BackupService extends EventTarget {
    *
    * @see BACKUP_DIR_NAME
    */
-  static #backupFolderName = "Restore Firefox";
+  static #backupFolderName = "Restore Firewolf";
 
   /**
    * The name of the backup archive file. Should be localized.

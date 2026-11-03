@@ -15,16 +15,16 @@
 ## https://mozilla-l10n.github.io/styleguides/mozilla_general/#brands-copyright-and-trademark
 
 -facebook-container-brand-name = Facebook Container
--monitor-brand-name = Firefox Monitor
+-monitor-brand-name = Firewolf Monitor
 -monitor-brand-short-name = Monitor
 -mozmonitor-brand-name = Mozilla Monitor
 -pocket-brand-name = Pocket
--send-brand-name = Firefox Send
--screenshots-brand-name = Firefox Screenshots
+-send-brand-name = Firewolf Send
+-screenshots-brand-name = Firewolf Screenshots
 -mozilla-vpn-brand-name = Mozilla VPN
--profiler-brand-name = Firefox Profiler
--translations-brand-name = Firefox Translations
--relay-brand-name = Firefox Relay
+-profiler-brand-name = Firewolf Profiler
+-translations-brand-name = Firewolf Translations
+-relay-brand-name = Firewolf Relay
 -relay-brand-short-name = Relay
 -fakespot-brand-name = Fakespot
 -solo-ai-brand-name = Solo
@@ -43,21 +43,21 @@
 
 # “Suggest” can be localized, “Firefox” must be treated as a brand
 # and kept in English.
--firefox-suggest-brand-name = Firefox Suggest
+-firefox-suggest-brand-name = Firewolf Suggest
 
 # ”Home" can be localized, “Firefox” must be treated as a brand
 # and kept in English.
--firefox-home-brand-name = Firefox Home
+-firefox-home-brand-name = Firewolf Home
 
 # View" can be localized, “Firefox” must be treated as a brand
 # and kept in English.
--firefoxview-brand-name = Firefox View
+-firefoxview-brand-name = Firewolf View
 
 # Firefox Labs is the name for a page in Settings to allow users to learn about
 # experimental and in-development features, and turn those features on and off.
 # The "Labs" portion can be localized, “Firefox” must be treated as a brand
 # and kept in English.
--firefoxlabs-brand-name = Firefox Labs
+-firefoxlabs-brand-name = Firewolf Labs
 
 -smart-window-brand-name =
     { $plural-form ->

@@ -2780,7 +2780,7 @@ const BASE_MESSAGES = () => [
             logo: {
               imageURL:
                 "chrome://browser/content/asrouter/assets/hero-relay-email-masks.svg",
-              alt: "Firefox Relay email masks",
+              alt: "Firewolf Relay email masks",
               height: "132px",
             },
             title: {

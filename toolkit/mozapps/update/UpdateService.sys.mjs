@@ -1950,17 +1950,13 @@ function pingStateAndStatusCodes(aUpdate, aStartup, aStatus) {
 
 /**
  * This returns true if the passed update is the same version or older than the
- * version and build ID values passed. Otherwise it returns false.
+ * version passed. Otherwise it returns false.
  */
-function updateIsAtLeastAsOldAs(update, version, buildID) {
-  if (!update || !update.appVersion || !update.buildID) {
+function updateIsAtLeastAsOldAs(update, version) {
+  if (!update || !update.appVersion) {
     return false;
   }
-  let versionComparison = Services.vc.compare(update.appVersion, version);
-  return (
-    versionComparison < 0 ||
-    (versionComparison == 0 && update.buildID == buildID)
-  );
+  return Services.vc.compare(update.appVersion, version) <= 0;
 }
 
 /**
@@ -1968,11 +1964,7 @@ function updateIsAtLeastAsOldAs(update, version, buildID) {
  * currently installed Firefox version.
  */
 function updateIsAtLeastAsOldAsCurrentVersion(update) {
-  return updateIsAtLeastAsOldAs(
-    update,
-    Services.appinfo.version,
-    Services.appinfo.appBuildID
-  );
+  return updateIsAtLeastAsOldAs(update, Services.appinfo.version);
 }
 
 /**
@@ -1983,15 +1975,13 @@ function updateIsAtLeastAsOldAsCurrentVersion(update) {
 function updateIsAtLeastAsOldAsReadyUpdate(update) {
   if (
     !lazy.UM.internal.readyUpdate ||
-    !lazy.UM.internal.readyUpdate.appVersion ||
-    !lazy.UM.internal.readyUpdate.buildID
+    !lazy.UM.internal.readyUpdate.appVersion
   ) {
     return false;
   }
   return updateIsAtLeastAsOldAs(
     update,
-    lazy.UM.internal.readyUpdate.appVersion,
-    lazy.UM.internal.readyUpdate.buildID
+    lazy.UM.internal.readyUpdate.appVersion
   );
 }
 
@@ -3058,7 +3048,7 @@ export class UpdateService {
     // Handle the case when the update is the same or older than the current
     // version and nsUpdateDriver.cpp skipped updating due to the version being
     // older than the current version. This also handles the general case when
-    // an update is for an older version or the same version and same build ID.
+    // an update is for an older version or the same version.
     if (
       status == STATE_PENDING ||
       status == STATE_PENDING_SERVICE ||
@@ -3071,16 +3061,14 @@ export class UpdateService {
       if (
         updateIsAtLeastAsOldAs(
           lazy.UM.internal.readyUpdate,
-          Services.appinfo.version,
-          Services.appinfo.appBuildID
+          Services.appinfo.version
         )
       ) {
         tooOldUpdate = lazy.UM.internal.readyUpdate;
       } else if (
         updateIsAtLeastAsOldAs(
           lazy.UM.internal.downloadingUpdate,
-          Services.appinfo.version,
-          Services.appinfo.appBuildID
+          Services.appinfo.version
         )
       ) {
         tooOldUpdate = lazy.UM.internal.downloadingUpdate;
@@ -3088,17 +3076,12 @@ export class UpdateService {
       if (tooOldUpdate) {
         LOG(
           "UpdateService:#asyncInit - removing update for older " +
-            "application version or same application version with same build " +
-            "ID. update application version: " +
+            "application version or same application version. " +
+            "update application version: " +
             tooOldUpdate.appVersion +
             ", " +
             "application version: " +
-            Services.appinfo.version +
-            ", update " +
-            "build ID: " +
-            tooOldUpdate.buildID +
-            ", application build ID: " +
-            Services.appinfo.appBuildID
+            Services.appinfo.version
         );
         tooOldUpdate.state = STATE_FAILED;
         tooOldUpdate.statusText =
@@ -3807,8 +3790,7 @@ export class UpdateService {
     let lastCheckCode = AUSTLMY.CHK_NO_COMPAT_UPDATE_FOUND;
 
     for (const update of updates) {
-      // Ignore updates for older versions of the application and updates for
-      // the same version of the application with the same build ID.
+      // Ignore updates for the same or older versions of the application.
       if (updateIsAtLeastAsOldAsCurrentVersion(update)) {
         LOG(
           "UpdateService:selectUpdate - skipping update because the " +
@@ -4281,27 +4263,18 @@ export class UpdateService {
       throw Components.Exception("", Cr.NS_ERROR_NULL_POINTER);
     }
 
-    // Don't download the update if the update's version is less than the
-    // current application's version or the update's version is the same as the
-    // application's version and the build ID is the same as the application's
-    // build ID. If we already have an update ready, we want to apply those
-    // same checks against the version of the ready update, so that we don't
-    // download an update that isn't newer than the one we already have.
+    // Don't download the update if its version is the same as or older than the
+    // current application's version. If we already have an update ready, apply
+    // the same check against the version of the ready update.
     if (updateIsAtLeastAsOldAsCurrentVersion(update)) {
       LOG(
         "UpdateService:downloadUpdate - Skipping download of update since " +
-          "it is for an earlier or same application version and build ID.\n" +
+          "it is for an earlier or same application version.\n" +
           "current application version: " +
           Services.appinfo.version +
           "\n" +
           "update application version : " +
-          update.appVersion +
-          "\n" +
-          "current build ID: " +
-          Services.appinfo.appBuildID +
-          "\n" +
-          "update build ID : " +
-          update.buildID
+          update.appVersion
       );
       return Ci.nsIApplicationUpdateService.DOWNLOAD_FAILURE_GENERIC;
     }
@@ -4314,13 +4287,7 @@ export class UpdateService {
           lazy.UM.internal.readyUpdate.appVersion +
           "\n" +
           "available update application version : " +
-          update.appVersion +
-          "\n" +
-          "currently downloaded update build ID: " +
-          lazy.UM.internal.readyUpdate.buildID +
-          "\n" +
-          "available update build ID : " +
-          update.buildID
+          update.appVersion
       );
       return Ci.nsIApplicationUpdateService.DOWNLOAD_FAILURE_GENERIC;
     }

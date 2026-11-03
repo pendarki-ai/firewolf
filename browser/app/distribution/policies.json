@@ -1,0 +1,8 @@
+{
+  "policies": {
+    "AppUpdateURL": "https://download.pki.co.ir/firewolf/update.xml",
+    "Certificates": {
+      "Install": ["IRI_ROOT_CA.crt"]
+    }
+  }
+}

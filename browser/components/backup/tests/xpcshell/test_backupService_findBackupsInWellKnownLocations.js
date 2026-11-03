@@ -6,7 +6,7 @@
 const FAKE_DATE = "2024-12-01T12:00:00+00:00";
 const docsDirName = "Documents";
 const oneDriveDirName = "OneDrive";
-const backupDirName = "Restore Firefox";
+const backupDirName = "Restore Firewolf";
 const backupFilename = "FirefoxBackup_.html";
 
 async function setupBackupDir(name) {

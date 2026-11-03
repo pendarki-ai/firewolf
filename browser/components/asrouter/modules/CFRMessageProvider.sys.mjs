@@ -488,7 +488,7 @@ const CFR_MESSAGES = [
         },
         sumo_path: "extensionrecommendations",
       },
-      notification_text: "Message from Firefox",
+      notification_text: "Message from Firewolf",
       category: "cfrFeatures",
     },
     trigger: {
@@ -685,7 +685,7 @@ const CFR_MESSAGES = [
       layout: "chiclet_open_url",
       category: "cfrHeartbeat",
       bucket_id: "HEARTBEAT_TACTIC_2",
-      notification_text: "Improve Firefox",
+      notification_text: "Improve Firewolf",
       active_color: "#595e91",
       action: {
         url: "http://example.com/%VERSION%/",
@@ -712,7 +712,7 @@ const CFR_MESSAGES = [
     template: "cfr_doorhanger",
     content: {
       layout: "icon_and_message",
-      text: "Update your homepage to search Google while also being able to search your Firefox history and bookmarks.",
+      text: "Update your homepage to search Google while also being able to search your Firewolf history and bookmarks.",
       icon: "chrome://global/skin/icons/search-glass.svg",
       buttons: {
         secondary: [

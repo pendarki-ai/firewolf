@@ -167,7 +167,7 @@ add_task(async function test_oneDriveDirNotReturnedIfUserNotLoggedIn() {
 
 const docsDirName = "Documents";
 const oneDriveDirName = "OneDrive";
-const backupDirName = "Restore Firefox";
+const backupDirName = "Restore Firewolf";
 const backupFilename = "FirefoxBackup_.html";
 
 add_task(async function test_findBackupInDocsAfterSignInToOneDrive() {

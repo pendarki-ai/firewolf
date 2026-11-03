@@ -204,7 +204,7 @@ export const InflightAssetsMessageProvider = {
             },
             sumo_path: "extensionrecommendations"
           },
-          notification_text: "Message from Firefox",
+          notification_text: "Message from Firewolf",
           category: "cfrFeatures"
         },
         frequency: {

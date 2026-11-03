@@ -14,7 +14,7 @@ export const PREFERENCES_NAV_MAP = {
   "about:preferences#ai": {
     "label": "AI Controls",
     "breadcrumb": "Settings > AI Controls",
-    "description": "You always have a choice in Firefox, including whether to use features enhanced with AI. More controls coming soon."
+    "description": "You always have a choice in Firewolf, including whether to use features enhanced with AI. More controls coming soon."
   },
   "about:preferences#dnsOverHttps": {
     "label": "DNS over HTTPS",
@@ -24,7 +24,7 @@ export const PREFERENCES_NAV_MAP = {
   "about:preferences#etp": {
     "label": "Enhanced Tracking Protection",
     "breadcrumb": "Settings > Browser Privacy > Enhanced Tracking Protection",
-    "description": "Sites use trackers to follow you online and show creepy ads. Firefox shields you as you browse, blocking trackers automatically so you’re in control of your digital trail."
+    "description": "Sites use trackers to follow you online and show creepy ads. Firewolf shields you as you browse, blocking trackers automatically so you’re in control of your digital trail."
   },
   "about:preferences#etpCustomize": {
     "label": "Customize tracking protection",
@@ -39,7 +39,7 @@ export const PREFERENCES_NAV_MAP = {
   "about:preferences#history": {
     "label": "History",
     "breadcrumb": "Settings > Browser Privacy > History",
-    "description": "Choose what you want Firefox to remember when you close the browser."
+    "description": "Choose what you want Firewolf to remember when you close the browser."
   },
   "about:preferences#home": {
     "label": "Home and startup",
